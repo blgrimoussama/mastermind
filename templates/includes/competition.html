@@ -1,0 +1,535 @@
+<!doctype html>
+<html class="start-center" lang="en">
+<head>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta charset="utf-8">
+<title>Play c4arena - Four-in-a-Row online multiplayer game</title>
+<meta name="description" content="Classic Four-in-a-Row game. Play online or local game against your friends or AI.">
+<meta name="keywords" content="connect, 4, four, row, line, multiplayer, online">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicon/manifest.json">
+<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="/favicon/favicon.ico">
+<meta name="apple-mobile-web-app-title" content="c4arena">
+<meta name="application-name" content="c4arena">
+<meta name="msapplication-config" content="favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,400italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="static/competition/style.css">
+<meta property="og:url" content="http://c4arena.com">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Play c4arena - Four-in-a-Row online multiplayer game">
+<meta property="og:description" content="Classic Four-in-a-Row game. Play online or local game against your friends or AI.">
+<meta property="og:image" content="http://c4arena.com/media/facebook.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@daniel_vyskoc">
+<meta name="twitter:title" content="Play c4arena - Four-in-a-Row online multiplayer game">
+<meta name="twitter:image" content="http://c4arena.com/media/twitter.png">
+<meta name="twitter:description" content="Classic Four-in-a-Row game. Play online or local game against your friends or AI.">
+<meta name="google-site-verification" content="RDeCwDZBTtbu1sx2ewGtKcjB2gscwG_PynE7epV8VG8" />
+<script>
+		var serverData = {"icons":{"alien":{"creationDate":"2017-05-21 22:05:09","displayName":"Alien","filename":"alien.svg","isFree":false,"isOwned":false,"isPublic":true,"price":100},"anchor":{"creationDate":"2017-05-21 22:09:40","displayName":"Anchor","filename":"anchor.svg","isFree":false,"isOwned":false,"isPublic":true,"price":100},"apple":{"creationDate":"2017-05-21 22:09:40","displayName":"Apple","filename":"apple.svg","isFree":false,"isOwned":false,"isPublic":true,"price":75},"beer":{"creationDate":"2017-05-21 22:05:09","displayName":"Beer","filename":"beer.svg","isFree":false,"isOwned":false,"isPublic":true,"price":100},"biohazard":{"creationDate":"2017-05-21 22:05:09","displayName":"Biohazard","filename":"biohazard.svg","isFree":false,"isOwned":false,"isPublic":true,"price":50},"bomb":{"creationDate":"2017-05-21 22:09:40","displayName":"Bomb","filename":"bomb.svg","isFree":false,"isOwned":false,"isPublic":true,"price":100},"car":{"creationDate":"2017-05-21 22:09:40","displayName":"Car","filename":"car.svg","isFree":false,"isOwned":false,"isPublic":true,"price":100},"cat":{"creationDate":"2017-05-21 22:13:13","displayName":"Cat","filename":"cat.svg","isFree":false,"isOwned":false,"isPublic":true,"price":100},"crown":{"creationDate":"2017-05-21 22:00:59","displayName":"Crown","filename":"crown.svg","isFree":true,"isOwned":false,"isPublic":true,"price":100},"diamond":{"creationDate":"2017-05-21 22:13:13","displayName":"Diamond","filename":"diamond.svg","isFree":false,"isOwned":false,"isPublic":true,"price":500},"dog":{"creationDate":"2017-05-21 22:05:09","displayName":"Dog","filename":"dog.svg","isFree":false,"isOwned":false,"isPublic":true,"price":100},"dollar":{"creationDate":"2017-05-21 22:09:40","displayName":"Dollar","filename":"dollar.svg","isFree":false,"isOwned":false,"isPublic":true,"price":250},"flower":{"creationDate":"2017-05-21 22:05:09","displayName":"Flower","filename":"flower.svg","isFree":false,"isOwned":false,"isPublic":true,"price":50},"ghost":{"creationDate":"2017-05-21 22:13:13","displayName":"Ghost","filename":"ghost.svg","isFree":false,"isOwned":false,"isPublic":true,"price":75},"happy-face":{"creationDate":"2017-05-21 22:25:59","displayName":"Happy face","filename":"happy-face.svg","isFree":true,"isOwned":false,"isPublic":true,"price":100},"heart":{"creationDate":"2017-05-21 22:05:09","displayName":"Heart","filename":"heart.svg","isFree":false,"isOwned":false,"isPublic":true,"price":100},"ice-cream":{"creationDate":"2017-05-21 22:09:40","displayName":"Ice cream","filename":"ice-cream.svg","isFree":false,"isOwned":false,"isPublic":true,"price":100},"infinity":{"creationDate":"2017-05-21 22:09:40","displayName":"Infinity","filename":"infinity.svg","isFree":false,"isOwned":false,"isPublic":true,"price":75},"lambda":{"creationDate":"2017-05-21 22:09:40","displayName":"Lambda","filename":"lambda.svg","isFree":false,"isOwned":false,"isPublic":true,"price":100},"leaf":{"creationDate":"2017-05-21 22:05:09","displayName":"Leaf","filename":"leaf.svg","isFree":true,"isOwned":false,"isPublic":true,"price":100},"light-bulb":{"creationDate":"2017-05-21 22:13:13","displayName":"Light bulb","filename":"light-bulb.svg","isFree":false,"isOwned":false,"isPublic":true,"price":75},"moustache":{"creationDate":"2017-05-21 22:13:13","displayName":"Moustache","filename":"moustache.svg","isFree":false,"isOwned":false,"isPublic":true,"price":75},"note":{"creationDate":"2017-05-21 22:09:40","displayName":"Note","filename":"note.svg","isFree":true,"isOwned":false,"isPublic":true,"price":100},"penguin":{"creationDate":"2017-05-21 22:09:40","displayName":"Penguin","filename":"penguin.svg","isFree":false,"isOwned":false,"isPublic":true,"price":100},"pizza-slice":{"creationDate":"2017-05-21 22:13:13","displayName":"Pizza slice","filename":"pizza-slice.svg","isFree":false,"isOwned":false,"isPublic":true,"price":100},"question-mark":{"creationDate":"2017-05-21 22:13:13","displayName":"Question mark","filename":"question-mark.svg","isFree":false,"isOwned":false,"isPublic":true,"price":50},"rocket":{"creationDate":"2017-05-21 22:09:40","displayName":"Rocket","filename":"rocket.svg","isFree":false,"isOwned":false,"isPublic":true,"price":100},"shuriken":{"creationDate":"2017-05-21 22:13:13","displayName":"Shuriken","filename":"shuriken.svg","isFree":false,"isOwned":false,"isPublic":true,"price":100},"skull":{"creationDate":"2017-05-21 22:05:09","displayName":"Skull","filename":"skull.svg","isFree":false,"isOwned":false,"isPublic":true,"price":100},"snail-shell":{"creationDate":"2017-05-21 22:13:13","displayName":"Snail shell","filename":"snail-shell.svg","isFree":false,"isOwned":false,"isPublic":true,"price":100},"snowflake":{"creationDate":"2017-05-21 22:05:09","displayName":"Snowflake","filename":"snowflake.svg","isFree":false,"isOwned":false,"isPublic":true,"price":75},"star":{"creationDate":"2017-05-18 01:45:45","displayName":"Star","filename":"star.svg","isFree":true,"isOwned":false,"isPublic":true,"price":100},"strawberry":{"creationDate":"2017-05-21 22:09:40","displayName":"Strawberry","filename":"strawberry.svg","isFree":false,"isOwned":false,"isPublic":true,"price":75},"sun":{"creationDate":"2017-05-21 22:09:40","displayName":"Sun","filename":"sun.svg","isFree":false,"isOwned":false,"isPublic":true,"price":75},"twister":{"creationDate":"2017-05-21 22:05:09","displayName":"Twister","filename":"twister.svg","isFree":false,"isOwned":false,"isPublic":true,"price":50},"watermelon":{"creationDate":"2017-05-21 22:09:40","displayName":"Watermelon","filename":"watermelon.svg","isFree":false,"isOwned":false,"isPublic":true,"price":50},"xd":{"creationDate":"2017-05-21 22:09:40","displayName":"XD","filename":"xd.svg","isFree":false,"isOwned":false,"isPublic":true,"price":75}},"time":"2022-07-30 23:01:09"};
+		
+		deltaTime = new Date(serverData.time).getTime() - new Date().getTime();
+
+		var element = {};
+		var environment;
+		 
+		 environment = 'embed'; 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		var resize;
+		var queryArray = window.location.pathname;
+		if (queryArray.length <= 1) {
+			queryArray = [];
+		} else {
+			queryArray = queryArray.startsWith('/') ? queryArray.substr(1) : queryArray;
+			queryArray = queryArray.endsWith('/') ? queryArray.slice(0, -1) : queryArray;
+			queryArray = queryArray.split('/');
+		}
+	</script>
+<script src="static/competition/script.js"></script>
+<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-37977315-9', 'auto');
+		
+		
+		
+
+		ga('set', 'location', document.location.origin);
+		ga('set', 'page', '/');
+		ga('send', 'pageview');
+
+		
+		
+		
+
+		var eventLabel = 'home';
+
+		if (queryArray.length > 0 && queryArray[0] === 'embed') {
+			if (queryArray.length === 1) {
+			eventLabel = 'default';
+			} else {
+				eventLabel = queryArray[1];
+			}
+		}
+
+		ga('send', {
+			hitType: 'event',
+			eventCategory: 'Destination',
+			eventAction: 'visit',
+			eventLabel: eventLabel
+		});
+	</script>
+<script id="fsc-api" src="https://d1f8f9xcsvx3ha.cloudfront.net/sbl/0.7.4/fastspring-builder.min.js" data-popup-closed="popupClosedCallback" type="text/javascript" data-storefront="danielvyskoc.onfastspring.com/popup-danielvyskoc">
+	</script>
+<script>
+		
+		
+		
+		
+		
+		
+	</script>
+</head>
+<body>
+<script>
+		
+
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : '573524772849187',
+				xfbml      : true,
+				version    : 'v2.8'
+			});
+
+			
+		};
+
+		
+	</script>
+<div id="resize-fixer">
+<div>
+<div id="ios-statusbar" class=""></div>
+<div id="navigation" class="height-exclude hide">
+<div id="leave" class="hide"><span class="fontello"><script>Fontello.write('left');</script></span> <div class="reverse">Leave</div></div>
+<div id="back" class="hide"><span class="fontello"><script>Fontello.write('left');</script></span> <div class="reverse">Back</div></div>
+</div>
+</div>
+<div id="ingame-ad" class="hide"></div>
+<div class="lock-screen hide">
+<div id="ingame-ad-2" class="hide">
+<div id="ingame-ad-2-hide">Hide [x]</div>
+<div id="ingame-ad-2-content">
+</div>
+</div>
+</div>
+<div id="main-menu-top-ad" class="hide"></div>
+<div id="partners">
+Partners:<br>
+<a href="https://iogames.space/" target="_blank">iogames.space</a><br>
+<a href="https://www.crazygames.com/c/io" target="_blank">crazygames.com</a><br>
+<a href="http://titotu.io/" target="_blank">titotu.io</a><br>
+</div>
+<div id="content">
+<div id="screens" class="lock-width">
+<div id="screen-loading" class="screen">
+<div class=screen-background-noedge>
+<div class="screen-title">Loading</div>
+<img class="preloader" src="/assets/preloader.svg" height="32" width="32">
+</div>
+</div>
+<div id="screen-main-menu" class="screen hide">
+<div class="screen-background">
+<div class="hide">
+<div id="left-section">
+<div id="promote-galaxystrife" class="section-bg" style="width: 246px; padding: 3px;">
+<a href="http://galaxystrife.com">
+<img src="/assets/galaxystrife-banner-300x250.svg" style="width: 100%"><br>
+New game from creator of c4arena
+</a>
+</div>
+<script>
+								document.getElementById('promote-galaxystrife').addEventListener('click', function() {
+									window.top.location.href = 'http://galaxystrife.com';
+								});
+							</script>
+<div class="hide">
+<img id="promote-register-200x200" class="section-bg promote pointer hide" src="/assets/promote-register-200x200.png">
+<img id="promote-buy-gold-200x200" class="section-bg promote pointer" src="/assets/promote-buy-gold-200x200.png">
+<div id="ad-main-chest" class="section-bg">
+<div id="ad-main-chest-ready" class="hide">
+<img src="/assets/chest.svg"><br>
+Open chest
+</div>
+<div id="ad-main-chest-locked" class="hide">
+<img src="/assets/chest-locked.svg"><br>
+Next chest in <span class="chest-time"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="right-section" class="hide">
+<div id="main-menu-ad" class="section-bg promote hide"></div>
+<img id="promote-buy-icons-200x200" class="section-bg promote pointer" src="/assets/promote-buy-icons-200x200.png">
+</div>
+<div class="screen-title"><a href="c4arena.com">c4arena.com</a>
+</div>
+<div id="players-online"></div>
+<div class="hide">
+<div id="menu-button-login" class="menu-button-highlight hide">Login</div>
+<div id="menu-button-profile" class="menu-button-highlight-2 hide">Profile</div>
+</div>
+<div id="menu-button-find-opponent" class="menu-button">Find opponent</div>
+<div id="menu-button-invite-friend" class="menu-button">Play with friend</div>
+<div id="menu-button-play-against-ai" class="menu-button">Play against AI</div>
+<div id="menu-button-local-multiplayer" class="menu-button">Local multiplayer</div>
+<div id="menu-line"></div>
+<div id="menu-button-more" class="menu-button fontello"><script>Fontello.write('cog');</script></div>
+<a href="http://galaxystrife.com" target="_blank" style="
+						margin-bottom: -15px;
+						display: block;
+						margin-top: 10px;"><img src="/assets/galaxystrife-thumbnail.png"></a>
+</div>
+</div>
+<div id="screen-find-opponent" class="screen hide">
+<div class=screen-background-noedge>
+<div id="find-opponent-title" class="screen-title"></div>
+<input id="find-opponent-title-link" class="casual-input-wide" type="text" readonly>
+<img id="finding-opponent-preloader" class="preloader" src="/assets/preloader.svg" height="32" width="32">
+<div id="finding-opponent-invite-friend-button" class="menu-button">Play with friend</div>
+<div id="finding-opponent-find-opponent-button" class="menu-button">Find opponent</div>
+<div id="finding-opponent-try-again-button" class="menu-button">Try again</div>
+</div>
+<div id="find-opponent-ad"></div>
+</div>
+<div id="screen-game" class="screen hide">
+<div class="screen-background-noedge">
+<div id="game-board-container">
+<div id="game-board">
+<div id="discs"></div>
+<div id="board"></div>
+<div id="selection-container" class="hide"></div>
+<div id="board-columns">
+<div id="board-column-0" class="board-column"></div>
+<div id="board-column-1" class="board-column"></div>
+<div id="board-column-2" class="board-column"></div>
+<div id="board-column-3" class="board-column"></div>
+<div id="board-column-4" class="board-column"></div>
+<div id="board-column-5" class="board-column"></div>
+<div id="board-column-6" class="board-column"></div>
+</div>
+</div>
+</div>
+<div id="game-info">
+<div id="info-messages">
+<div id="cloud-title-you" class="hide"></div>
+<div id="cloud-title-opponent" class="hide"></div>
+</div>
+<div id="player-field-you">
+<div id="small-disc-you"></div>
+<div id="name-you">You</div>
+</div>
+<div id="player-field-opponent">
+<div id="small-disc-opponent"></div>
+<div id="name-opponent">Opponent</div>
+</div>
+<div id="turn-field">
+<div id="turn-arrow-container" class="show-arrow">
+<div id="turn-arrow">
+<div id="turn-arrow-you"><div id="turn-arrow-text-you">15</div></div>
+<div id="turn-arrow-opponent"><div id="turn-arrow-text-opponent">15</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="screen-invite-friend" class="screen hide">
+<div class="screen-background">
+<input id="name-input" class="text-input" type="text" maxlength="25" placeholder="Nickname (optional)">
+<div class="ui-item-container">
+<input id="channel-input" class="text-input text-input-short" type="text" maxlength="25" placeholder="Channel">
+<div id="unique-channel-button"><img src="/assets/dice.svg"></div>
+</div>
+<div class="cloud-title">Give this link to your friend</div>
+<input id="share-link-area" class="readonly-input" type="text" readonly>
+<div id="invite-go-button" class="menu-button">Go</div>
+</div>
+</div>
+<div id="screen-invited" class="screen hide">
+<div class="screen-background">
+<div class="screen-title-main">c4arena.com</div>
+<div class="cloud-title">You are about to play on this channel</div>
+<input id="about-to-play-channel" class="readonly-input" type="text" readonly>
+<input id="name-input-invited" class="text-input" type="text" maxlength="25" placeholder="Nickname (optional)">
+<div id="invited-go-button" class="menu-button">Go</div>
+</div>
+</div>
+<div id="screen-wait-for-friend" class="screen hide">
+<div class=screen-background-noedge>
+<div id="wait-for-friend-title" class="screen-title">this is set by javascript</div>
+<img class="preloader" src="/assets/preloader.svg" height="32" width="32">
+</div>
+</div>
+<div id="screen-profile" class="screen hide">
+<div class="screen-background">
+<div class="menu-text">Name: <span id="profile-name"></span></div>
+<div class="menu-text">Gold: <span class="your-gold"></span></div>
+<div class="menu-text-small">Logged in with: <span id="profile-provider"></span></div>
+<div class="menu-text-small hide">ID: <span id="profile-id"></span></div>
+<div id="profile-button-change-icon" class="menu-button"><img id="profile-icon" src="/i/star.svg"> Change icon</div>
+<div id="profile-button-buy-icons" class="menu-button">Buy icons</div>
+<div id="profile-button-buy-gold" class="menu-button">Buy gold</div>
+<div id="profile-button-chest" class="menu-button"><img id="profile-chest" src="/assets/chest.svg"> <span id="profile-chest-text"></span></div>
+<div id="profile-button-logout" class="menu-button">Logout</div>
+</div>
+</div>
+<div id="screen-icons" class="screen hide">
+<div class="screen-background">
+<div id="your-icons-title">Your Icons</div>
+<div id="your-icons"></div>
+<div id="buy-icons-title">Buy Icons <div id="buy-icons-title-gold">Gold: <span class="your-gold"></span></div></div>
+<div id="buy-icons"></div>
+</div>
+</div>
+<div id="screen-buy-gold" class="screen hide">
+<div class="screen-background">
+<div id="buy-icons-title">Buy gold <div id="buy-icons-title-gold">Gold: <span class="your-gold"></span></div></div>
+<div id="buy-gold-button-group">
+<div class="extra-title">Save</div>
+<div id="buy-gold-200" class="menu-button-buy"><div class="gold-part">200 Gold</div> <div class="extra-part-invisible">0%</div> <div class="buy-part">&#36;1.99 Buy</div></div>
+<div id="buy-gold-600" class="menu-button-buy"><div class="gold-part">600 Gold</div> <div class="extra-part">20%</div> <div class="buy-part">&#36;4.99 Buy</div></div>
+<div id="buy-gold-1300" class="menu-button-buy"><div class="gold-part">1300 Gold</div> <div class="extra-part">30%</div> <div class="buy-part">&#36;9.99 Buy</div></div>
+<div id="buy-gold-2100" class="menu-button-buy"><div class="gold-part">2100 Gold</div> <div class="extra-part">40%</div> <div class="buy-part">&#36;14.99 Buy</div></div>
+<div id="buy-gold-3000" class="menu-button-buy"><div class="gold-part">3000 Gold</div> <div class="extra-part">50%</div> <div class="buy-part">&#36;19.99 Buy</div></div>
+</div>
+</div>
+</div>
+<div id="screen-more" class="screen hide">
+<div class="screen-background-noedge">
+<div class="screen-title-more">Settings</div>
+<div class="more-section">
+<table>
+<tr class="hide">
+<td>Dark skin</td>
+<td><input id="settings-dark-skin" type="checkbox"></td>
+</tr>
+<tr>
+<td>Large board</td>
+<td><input id="settings-large-board" type="checkbox"></td>
+</tr>
+<tr>
+<td>Disc fall speed</td>
+<td>
+<select id="settings-fall-speed">
+<option value="slow">Slow</option>
+<option selected value="normal">Normal</option>
+<option value="fast">Fast</option>
+<option value="instant">Instant</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>AI difficulty</td>
+<td>
+<select id="settings-ai-difficulty">
+<option disabled selected value> Not set </option>
+<option value="easy">Easy</option>
+<option value="medium">Medium</option>
+<option value="hard">Hard</option>
+</select>
+</td>
+</tr>
+</table>
+</div>
+<div class="screen-title-more">Platforms</div>
+<div class="more-section">
+<a href="http://c4arena.com/" target="_blank">www</a><br>
+<a href="https://chrome.google.com/webstore/detail/c4arena/fdjcaibkhkgbkhpolfgbbmgdpoblapko" target="_blank">Chrome</a><br>
+<a href="https://www.facebook.com/c4arena" target="_blank">Facebook</a><br>
+</div>
+<div class="screen-title-more">Add to your website</div>
+<div class="more-section">
+<div class="more-item">
+Use this url:<br>
+<div class="text-special">c4arena.com/embed</div>
+<a href="/p/images.html" target="_blank">Images and screenshots</a>
+</div>
+<div class="more-item">
+HTML code:<br>
+<div id="embed-code" class="text-special">&lt;iframe width=&quot;640&quot; height=&quot;480&quot; src=&quot;http://c4arena.com/embed&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;</div>
+</div>
+<div class="more-item"><input id="embed-settings-width" type="text" value=640> x <input id="embed-settings-height" type="text" value=480></div>
+<div class="more-item hide">Dark skin <input id="embed-settings-dark-skin" type="checkbox"></div>
+</div>
+</div>
+</div>
+</div>
+<div id="processing">
+<div id="processing-background">
+</div>
+<div id="processing-body">
+Processing...<br>
+Please wait.<br>
+<img class="preloader" src="/assets/preloader.svg" height="32" width="32">
+</div>
+</div>
+<div id="message-box-background"></div>
+<div id="message-box">
+<div id="game-end-box" class="message-box-content hide">
+<div id="game-end-title">
+<span id="game-end-title-player">PLAYERNAME</span>
+<span id="game-end-title-you">You</span>
+<span id="game-end-title-opponent">Opponent</span>
+<span id="game-end-title-won">won</span>
+<span id="game-end-title-lose">lose</span>
+<span id="game-end-title-draw">Draw</span>
+</div>
+<img id="sunglasses" src="/assets/sunglasses.svg" width=32 height=32>
+<div id="win-smiley-you-container">
+<img id="win-smiley-you" width=32 height=32>
+</div>
+<div id="win-smiley-opponent-container">
+<img id="win-smiley-opponent" width=32 height=32>
+</div>
+<div class="game-end-buttons">
+<div id="rematch-title-container">
+<div id="rematch-title" class="cloud-title-float hide"></div>
+</div>
+<div id="play-again-button" class="menu-button">Play again</div>
+<div id="rematch-button" class="menu-button">Rematch</div>
+<div id="play-again-find-opponent-button" class="menu-button">Find opponent</div>
+<div id="change-difficulty" class="menu-button">Change difficulty</div>
+<div id="exit-to-menu-button" class="menu-button">Exit to menu</div>
+</div>
+<div id="game-end-ad" class="hide">
+</div>
+</div>
+<div id="leave-box" class="message-box-content hide">
+The game is not over yet.<br>Do you really want to leave?
+<div id="leave-button" class="menu-button-alert">Leave</div>
+<div id="keep-playing-button" class="menu-button">Keep playing</div>
+</div>
+<div id="error-box" class="message-box-content hide">
+<span id="error-title"></span>
+<div id="error-ok-button" class="menu-button hide">OK</div>
+<div class="menu-button-small close-button">Close</div>
+</div>
+<div id="embed-box" class="message-box-content hide">
+Add this code to your website<br><br>
+&lt;iframe width=&quot;640&quot; height=&quot;480&quot; src=&quot;http://c4arena.com/embed&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;<br><br>
+<a href="/p/images.html" target="_blank">Images and screenshots</a><br><br>
+<div id="embed-ok-button" class="menu-button hide">OK</div>
+<div class="menu-button-small close-button">Close</div>
+</div>
+<div id="ai-box" class="message-box-content hide">
+Choose AI difficulty
+<div id="ai-difficulty-easy" class="menu-button">Easy</div>
+<div id="ai-difficulty-medium" class="menu-button">Medium</div>
+<div id="ai-difficulty-hard" class="menu-button">Hard</div>
+<div class="menu-button-small close-button">Close</div>
+</div>
+<div id="login-box" class="message-box-content hide">
+Login with
+<div id="login-google" class="menu-button">GOOGLE</div>
+<div id="login-facebook" class="menu-button">FACEBOOK</div>
+<div class="menu-button-small close-button">Close</div>
+</div>
+<div id="ask-buy-icon-box" class="message-box-content hide">
+<img id="ask-buy-icon-image"><br>Do you really want to buy this icon for <span id="ask-buy-icon-gold" class="gold"></span> gold?
+<div id="ask-buy-icon-yes" class="menu-button">Yes</div>
+<div id="ask-buy-icon-no" class="menu-button-small">No</div>
+</div>
+<div id="not-enough-gold-box" class="message-box-content hide">
+<img id="more-gold-icon-image"><br>You don't have enough gold to buy this icon. This icon costs <span id="more-gold-icon-gold" class="gold"></span> gold. You have <span class="your-gold gold"></span> gold.
+<div id="buy-more-gold" class="menu-button">Buy more gold</div>
+<div class="menu-button-small close-button">Close</div>
+</div>
+<div id="just-bought-box" class="message-box-content hide">
+<img id="just-bought-icon-image"><br>Great! You have just bought new icon.
+<div class="menu-button-small close-button">Close</div>
+</div>
+<div id="chest-box" class="message-box-content hide">
+<div id="chest-not-open" class="hide">
+<div id="chest-ready" class="hide">
+<img id="chest-open-img" src="/assets/chest.svg"><br>
+Tap chest to open.
+</div>
+<div id="chest-locked" class="hide">
+<img src="/assets/chest-locked.svg"><br>
+Chest is not ready yet.<br>Chest will be unlocked in <span class="chest-time"></span>
+<div class="menu-button-small close-button">Close</div>
+</div>
+</div>
+<div id="chest-success" class="hide">
+<div id="chest-coin"></div><br>
+You opened chest and found <span id="chest-obtained-gold" class="gold"></span> gold!
+<div class="menu-button-small close-button">Close</div>
+</div>
+<div id="chest-error" class="hide">
+<div id="chest-error-content"></div>
+<div class="menu-button-small close-button">Close</div>
+</div>
+</div>
+<div id="chest-login-required-box" class="message-box-content hide">
+You must be logged in to open chest.
+<div id="chest-login" class="menu-button">Login</div>
+<div class="menu-button-small close-button">Close</div>
+</div>
+<div id="buy-gold-login-required-box" class="message-box-content hide">
+You must be logged in to buy gold.
+<div id="buy-gold-login" class="menu-button">Login</div>
+<div class="menu-button-small close-button">Close</div>
+</div>
+<div id="buy-icons-login-required-box" class="message-box-content hide">
+You must be logged in to buy icons.
+<div id="buy-icons-login" class="menu-button">Login</div>
+<div class="menu-button-small close-button">Close</div>
+</div>
+</div>
+</div>
+<div id="social-bar" class="height-exclude hide">
+<div class="fb-like" data-layout="button" data-width="450" data-show-faces="false" data-href="https://www.facebook.com/c4arena" data-share="false" style="top: -5px;"></div>
+&nbsp;
+<div id="embed">Embed</div>
+</div>
+<div id="log-area" class="log-show hide">
+<div id="toggle-log">L</div>
+</div>
+</div>
+</body>
+</html>

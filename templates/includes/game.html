@@ -1,0 +1,136 @@
+<table class="table_square">
+    <tbody id="table_body">
+        {% for i in range(4) %}
+                <tr>
+                    {% for j in range(9) %}
+                    <td class="square" id="{{i}}_{{j}}">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152 152">
+                        <rect x="0" y="0" width="152" height="152" stroke-width="0" stroke="#000" fill="#777"/>
+                        <circle id = 'circle_{{j}}_{{i}}' cx="76" cy="76" r="75" stroke-width="0.1" stroke="#999" fill="{{ colors['guesses'][j|string][i|string] }}" />
+                        </svg>
+                    </td>
+                    {% endfor %}
+                </tr>
+        {% endfor %}
+        <tr>
+            {% for j in range(8) %}
+            <td>
+                <table class="sub_table">
+                    <tbody id="table_body">
+                        <tr>
+                            <td class="sub_square">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152 152">
+                              <rect x="0" y="0" width="152" height="152" stroke-width="0" stroke="#000" fill="#777"/>
+                              <circle id = 'sub_circle_{{j}}_0' cx="76" cy="76" r="75" stroke-width="0.1" stroke="#999" fill="{{ colors['guesses'][j|string]['matches']['0'] }}"/>
+                              </svg>
+                            </td>
+                            <td class="sub_square">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152 152">
+                                <rect x="0" y="0" width="152" height="152" stroke-width="0" stroke="#000" fill="#777"/>
+                                <circle id = 'sub_circle_{{j}}_1' cx="76" cy="76" r="75" stroke-width="0.1" stroke="#999" fill="{{ colors['guesses'][j|string]['matches']['1'] }}"/>
+                                </svg>
+                              </td>
+                        </tr>
+                        <tr>
+                            <td class="sub_square">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152 152">
+                              <rect x="0" y="0" width="152" height="152" stroke-width="0" stroke="#000" fill="#777"/>
+                              <circle id = 'sub_circle_{{j}}_2' cx="76" cy="76" r="75" stroke-width="0.1" stroke="#999" fill="{{ colors['guesses'][j|string]['matches']['2'] }}"/>
+                              </svg>
+                            </td>
+                            <td class="sub_square">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 152 152">
+                                <rect x="0" y="0" width="152" height="152" stroke-width="0" stroke="#000" fill="#777"/>
+                                <circle id = 'sub_circle_{{j}}_3' cx="76" cy="76" r="75" stroke-width="0.1" stroke="#999" fill="{{ colors['guesses'][j|string]['matches']['3'] }}"/>
+                                </svg>
+                              </td>
+                        </tr>
+                    </tbody>
+                  </table>
+            </td>
+            {% endfor %}
+        </tr>
+    </tbody>
+  </table>
+<script>
+    var defaultUrl = "https://static-cdn.jtvnw.net/user-default-pictures-uv/ebb84563-db81-4b9c-8940-64ed33ccfc7b-profile_image-300x300.png"
+setInterval( function() {
+    fetch('/{{user}}/mastermind_json').then(
+        response => response.json()
+    ).then(
+        data =>
+            {
+                players = data['players']
+                players['versus'].forEach(
+                    (player, index) => 
+                        {
+                            oldPlayer = document.getElementById(`player-${index+1}`)
+                            playerName = oldPlayer.getElementsByClassName('player-name')[0]
+                            playerUrl = oldPlayer.getElementsByClassName('player-img')[0]
+                            if (player['name']) {
+                                playerName.innerHTML = player['name']
+                                playerUrl.src = player["url"]
+                                if (player['name'] == players['next']) {
+                                    playerName.classList.add("next");
+                                    playerUrl.classList.add('img_next')
+                                } else {
+                                    playerName.classList.remove("next");
+                                    playerUrl.classList.remove('img_next')
+                                }
+                            } else {
+                                playerName.innerHTML = "--------"
+                                playerUrl.src = defaultUrl
+                                if (player['name'] == players['next']) {
+                                    playerName.classList.add("next");
+                                    playerUrl.classList.add('img_next')
+                                } else {
+                                    playerName.classList.remove("next");
+                                    playerUrl.classList.remove('img_next')
+                                }
+                            }
+                        }
+                )
+                Object.keys(data['guesses']).forEach(
+                    column =>
+                    {data_2 = structuredClone(data['guesses']);
+                    data_3 = structuredClone(data['guesses']);
+                    delete data_2[column].matches;
+                    // console.log(column, data[column]);
+                    Object.keys(data_2[column]).forEach(
+                        row => 
+                            updateCircleColor(column, row, data_2[column])
+                            )
+                    delete data_3['8'];
+                    if (column !== '8') {
+                    //console.log(column, data_3[column])
+                    Object.keys(data_3[column]['matches']).forEach(
+                        match => 
+                            updateCircleMatchColor(column, match, data_3[column]['matches'])
+                            )}
+        })
+})
+}, 1000);
+
+function updateCircleColor(column, row, data) { // Row means also Color
+    circle = document.getElementById('circle_' + column + '_' + row);
+    
+    previousColor = circle.style.fill;
+
+    // If Previous value is not equal to the new value, change it!
+    if (previousColor !== data[row]) {
+        circle.style.fill = data[row];
+    }
+
+}
+
+function updateCircleMatchColor(column, match, data) {
+    subCircle = document.getElementById('sub_circle_' + column + '_' + match);
+    
+    previousColor = subCircle.style.fill;
+
+    // If Previous value is not equal to the new value, change it!
+    if (previousColor !== data[match]) {
+        subCircle.style.fill = data[match];
+    }
+}
+  </script>

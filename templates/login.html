@@ -1,0 +1,12 @@
+{% extends 'template.html' %}
+
+{% block title %}Index{% endblock %}
+{% block div %}
+<a href="/mastermind" title="Go to Mastermind">Mastermind</a>
+<button id='twitch_login' type="button">Login</button>
+<script type="text/javascript">
+    document.getElementById("twitch_login").onclick = function () {
+        location.href = "{{authorization_url}}";
+    };
+</script>
+{% endblock %}

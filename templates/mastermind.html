@@ -1,0 +1,39 @@
+{% extends 'template.html' %}
+
+{% block title %}Mastermind{% endblock %}
+{% block div %}
+  {% include 'includes/game.html' %}
+{% endblock %}
+{% block versus %}
+<span class="player" id="player-1">
+    <img class="player-img" src='{{ colors["players"]["versus"][0]["url"] }}' alt="Player-1"></img>
+    <span class="player-name">
+        {% set player = colors["players"]["versus"][0]["name"] %}
+        {% if player != "" %}
+            {{ player }}
+        {% else %}
+            {{ "--------" }}
+        {% endif %}
+    </span>
+</span>
+<span id="VS"> VS </span>
+<span class="player" id="player-2"> 
+    <span class="player-name">
+        {% set player = colors["players"]["versus"][1]["name"] %}
+        {% if player != "" %}
+            {{ player }}
+        {% else %}
+            {{ "--------" }}
+        {% endif %}
+    </span>
+    <img class="player-img" src='{{ colors["players"]["versus"][1]["url"] }}' alt="Player-2"></img>
+</span>
+{% endblock %}
+{% block twitch_chat %}
+<iframe
+  id="chat_embed"
+  src="https://www.twitch.tv/embed/{{user}}/chat?parent=flaskmastermind.oussamablgrim.repl.co&darkpopout"
+  height="500"
+  width="300">
+</iframe>
+{% endblock %}

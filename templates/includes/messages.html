@@ -1,0 +1,61 @@
+<style>
+    .message {
+        width: 40%;
+      word-wrap: break-word;
+    }
+</style>
+<table class="table table-dark table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Author</th>
+        <th scope="col">Message</th>
+        <th scope="col">Time Stamp</th>
+      </tr>
+    </thead>
+    <tbody id="table_body">
+      {% for message in messages %}
+        <tr>
+            <td id="id_{{message.id}}">{{ message.id }}</td>
+            <td id="author_{{message.id}}">{{ message.author }}</td>
+            <td id="message_{{message.id}}">
+              {{ message.message }}
+            </td>
+            <td id="time_{{message.id}}">{{ message.time }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <script>
+    var last_data
+    setInterval( function() {
+        fetch('/{{user}}/message_json').then(
+            response => response.json()
+        ).then(
+            data =>
+                {console.log(data);
+                    if (data != last_data) {
+                    last_data = data
+                    var table_body = document.getElementById('table_body')
+                    table_body.innerHTML = ''
+                    for (var i = 0; i < data.length; i++) {
+                        var row = document.createElement('tr')
+                        var id_cell = document.createElement('td')
+                        var author_cell = document.createElement('td')
+                        var message_cell = document.createElement('td')
+                        var time_cell = document.createElement('td')
+                        id_cell.innerHTML = data[i].id
+                        author_cell.innerHTML = data[i].author
+                        message_cell.innerHTML = data[i].message
+                        time_cell.innerHTML = data[i].time
+                        row.appendChild(id_cell)
+                        row.appendChild(author_cell)
+                        row.appendChild(message_cell)
+                        row.appendChild(time_cell)
+                        table_body.appendChild(row)
+                    }
+                }
+            })
+    }, 1000
+    );
+  </script>
